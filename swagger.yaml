@@ -51,6 +51,7 @@ definitions:
       id: C77124
       name: Superstar Shoes
       model_number: JOA72
+      availability_status: IN_STOCK
   product_not_found:
     required:
       - success
