@@ -30,11 +30,10 @@ paths:
           description: PAPI successful response
           schema:
             $ref: '#/definitions/product_found'
-        404:
+        default:
           description: Product not found
           schema:
             $ref: '#/definitions/product_not_found'
-  
 definitions:
   product_found:
     required:
