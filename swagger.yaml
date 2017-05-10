@@ -26,7 +26,7 @@ paths:
           description: The ID of the product. 
           required: true
           type: string
-          default: C77124
+          default: C771241
       responses:
         200:
           description: PAPI successful response
