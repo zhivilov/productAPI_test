@@ -1,0 +1,72 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: eCom Product API
+  description: Public faced eCom Product API
+  termsOfService: http://swagger.io/terms/
+  contact:
+    name: Ivan Zhyvilov
+    email: zhivilov.ivan@gmail.com
+    url: http://google.com
+host: google.com
+basePath: /api
+schemes:
+  - http
+produces:
+  - application/json
+paths:
+  /products/{pid}:
+    get:
+      description: |
+        Get eCom Product information ove API 
+      operationId: getproduct
+      parameters:
+        - name: pid
+          in: path
+          description: The ID of the product. 
+          required: true
+          type: string
+      responses:
+        200:
+          description: PAPI successful response
+          schema:
+            $ref: '#/definitions/product_found'
+        404:
+          description: Product not found
+          schema:
+            $ref: '#/definitions/product_not_found'
+  
+definitions:
+  product_found:
+    required:
+      - id
+      - name
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+    example:
+      id: C77124
+      name: Superstar Shoes
+      model_number: JOA72
+      metadata: 
+        page_title: adidas Superstar Shoes - White | adidas UK
+        site_name: adidas United Kingdom
+        description: Shop for Superstar Shoes - White at adidas.co.uk! See all the styles and colours of Superstar Shoes - White at the official adidas UK online store.
+        keywords: Superstar Shoes
+        canonical: //www.adidas.co.uk/superstar-shoes/C77124.html
+        robots: noindex, follow
+      availability_status: IN_STOCK
+  product_not_found:
+    required:
+      - success
+      - error
+    properties:
+      success:
+        type: string
+      error:
+        type: integer
+    example:
+      success: false
+      error: 404
