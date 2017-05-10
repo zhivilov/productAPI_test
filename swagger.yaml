@@ -11,7 +11,7 @@ basePath: /api
 schemes:
   - http
 produces:
-  - application/json;charset=utf-8
+  - application/json; charset=utf-8
 paths:
   /products/{pid}:
     get:
