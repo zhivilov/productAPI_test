@@ -18,7 +18,7 @@ paths:
   /products/{pid}:
     get:
       description: |
-        Get eCom Product information ove API 
+        Get eCom Product information over API 
       operationId: getproduct
       parameters:
         - name: pid
@@ -26,7 +26,7 @@ paths:
           description: The ID of the product. 
           required: true
           type: string
-          default: C771241
+          default: C77124
       responses:
         200:
           description: PAPI successful response
