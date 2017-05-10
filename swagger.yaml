@@ -1,14 +1,12 @@
 swagger: "2.0"
 info:
   version: 1.0.0
-  title: eCom Product API
-  description: Public faced eCom Product API
-  termsOfService: http://swagger.io/terms/
+  title: Product API
+  description: eCom Product API fro product related information
   contact:
     name: Ivan Zhyvilov
-    email: zhivilov.ivan@gmail.com
-    url: http://google.com
-host: google.com
+    email: ivan.zhyvilov@adidas-group.com
+host: www.adidas.co.uk
 basePath: /api
 schemes:
   - http
@@ -23,10 +21,10 @@ paths:
       parameters:
         - name: pid
           in: path
-          description: The ID of the product. 
+          description: The ID of the product 
           required: true
           type: string
-          default: C77124
+          default: BB1305
       responses:
         200:
           description: PAPI successful response
