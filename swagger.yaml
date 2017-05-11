@@ -54,11 +54,42 @@ definitions:
         maxLength: 5
       product_type:
         type: string
+      meta_data: 
+        $ref: '#/definitions/product_meta_data'
     example:
       id: C77124
       name: Superstar Shoes
       model_number: JOA72
+      product_type: inline
       availability_status: IN_STOCK
+  product_meta_data:
+    required:
+      - page_title
+      - site_name
+      - description
+      - keywords
+      - canonical
+      - robots
+    properties:
+      page_title: 
+        type: string
+      site_name: 
+        type: string
+      description: 
+        type: string
+      keywords: 
+        type: string
+      canonical: 
+        type: string
+      robots: 
+        type: string
+    example:
+      page_title: adidas Superstar Shoes - White | adidas UK
+      site_name: adidas United Kingdom
+      description: Shop for Superstar Shoes
+      keywords: Superstar Shoes
+      canonical: http://www.adidas.co.uk/superstar-shoes/C77124.html
+      robots: noindex, follow
   product_not_found:
     required:
       - success
