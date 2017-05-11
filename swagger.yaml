@@ -59,6 +59,11 @@ definitions:
         $ref: '#/definitions/product_meta_data'
       availability_status:
         type: string
+      variation_list:
+        type: array
+        description: List of product variations
+        items:
+          $ref: '#/definitions/product_variations'
     example:
       id: C77124
       name: Superstar Shoes
@@ -93,6 +98,30 @@ definitions:
       keywords: Superstar Shoes
       canonical: http://www.adidas.co.uk/superstar-shoes/C77124.html
       robots: noindex, follow
+  product_variations:
+    required:
+      - sku
+      - size
+      - availability
+      - max_order_quantity
+      - availability_status
+    properties:
+      sku: 
+        type: string
+      size: 
+        type: string
+      availability: 
+        type: number
+      max_order_quantity: 
+        type: number
+      availability_status: 
+        type: string
+    example:
+      sku: C77124_530
+      size: 3.5
+      availability: 1952
+      max_order_quantity: 10
+      availability_status: IN_STOCK
   product_not_found:
     required:
       - success
