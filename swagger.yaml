@@ -74,7 +74,7 @@ definitions:
     properties:
       page_title: 
         type: string
-      site_name: 
+      site_name1: 
         type: string
       description: 
         type: string
