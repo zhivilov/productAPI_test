@@ -39,7 +39,7 @@ definitions:
     required:
       - id
       - name
-      - model_number
+      - model_number1
       - product_type
       - availability_status
     properties:
@@ -49,7 +49,7 @@ definitions:
         maxLength: 6
       name:
         type: string
-      model_number:
+      model_number1:
         type: string
         minLength: 5
         maxLength: 5
@@ -74,7 +74,7 @@ definitions:
     properties:
       page_title: 
         type: string
-      site_name1: 
+      site_name: 
         type: string
       description: 
         type: string
