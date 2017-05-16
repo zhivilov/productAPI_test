@@ -46,16 +46,20 @@ definitions:
     properties:
       id:
         type: string
+        description: Article master ID
         minLength: 2
         maxLength: 6
       name:
         type: string
+        description: Localized product title
       model_number:
         type: string
+        description: Product Model Number
         minLength: 5
         maxLength: 5
       product_type:
         type: string
+        description: Type of the given product. Possible values "inline","miadidas","yrReebok","flash","hype"
       meta_data: 
         $ref: '#/definitions/product_meta_data'
       availability_status:
