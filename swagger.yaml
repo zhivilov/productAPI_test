@@ -24,7 +24,6 @@ paths:
           description: The ID of the product 
           required: true
           type: string
-          default: BB1305
           x-example: BB1305
       responses:
         200:
@@ -96,6 +95,8 @@ definitions:
       robots: 
         type: string
   product_variations:
+    required:
+      - page_title
     properties:
       sku: 
         type: string
