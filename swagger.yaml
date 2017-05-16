@@ -96,10 +96,15 @@ definitions:
         type: string
   product_variations:
     required:
-      - page_title
+      - sku
+      - size
+      - availability
+      - max_order_quantity
+      - availability_status
     properties:
       sku: 
         type: string
+        maxLength: 3
       size: 
         type: string
       availability: 
