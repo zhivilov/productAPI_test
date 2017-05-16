@@ -76,7 +76,7 @@ definitions:
       availability_status: IN_STOCK
   product_meta_data:
     properties:
-      page_title: 
+      page_title1: 
         type: string
       site_name: 
         type: string
