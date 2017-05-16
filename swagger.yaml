@@ -70,6 +70,8 @@ definitions:
       name: Superstar Shoes
       model_number: JOA72
       product_type: inline
+      product_meta_data:
+        page_title: title some
       availability_status: IN_STOCK
   product_meta_data:
     properties:
