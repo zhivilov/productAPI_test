@@ -61,7 +61,7 @@ definitions:
         type: string
         description: Type of the given product. Possible values "inline","miadidas","yrReebok","flash","hype"
         enum:
-          - inline1
+          - inline
           - miadidas
           - yrreebok
           - flash
@@ -88,6 +88,12 @@ definitions:
         canonical: http://www.adidas.co.uk/superstar-shoes/C77124.html
         robots: noindex, follow
       availability_status: IN_STOCK
+      variation_list:
+        sku: C77124_530
+        size: XL
+        availability: 255
+        max_order_quantity: 10
+        availability_status: IN_STOCK
   product_meta_data:
     required:
       - page_title
@@ -124,6 +130,11 @@ definitions:
         type: number
       availability_status: 
         type: string
+        enum:
+          - IN_STOCK
+          - NOT_AVAILABLE
+          - PREORDER
+          - BACKORDER
   product_not_found:
     required:
       - success
