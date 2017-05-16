@@ -29,13 +29,13 @@ paths:
         200:
           description: PAPI successful response
           schema:
-            $ref: '#/definitions/product_found'
+            $ref: '#/definitions/product_found_response'
         default:
           description: Product not found
           schema:
-            $ref: '#/definitions/product_not_found'
+            $ref: '#/definitions/product_not_found_response'
 definitions:
-  product_found:
+  product_found_response:
     required:
       - id
       - name
@@ -67,14 +67,19 @@ definitions:
           - flash
           - hype
       meta_data: 
-        $ref: '#/definitions/product_meta_data'
+        $ref: '#/definitions/meta_data_definition'
       availability_status:
         type: string
       variation_list:
         type: array
         description: List of product variations
         items:
-          $ref: '#/definitions/product_variations'
+          $ref: '#/definitions/variation_list_definition'
+      view_list:
+        type: array
+        description: List of product variations
+        items:
+          $ref: '#/definitions/view_list_definition'
     example:
       id: C77124
       name: Superstar Shoes
@@ -94,7 +99,11 @@ definitions:
         availability: 255
         max_order_quantity: 10
         availability_status: IN_STOCK
-  product_meta_data:
+      view_list:
+        type: standard
+        image_url: https://sits-pod14-adidas.demandware.net/zoom/C77124_01_standard.jpg
+        video_url: http://s7g10.scene7.com/C77124_product_video_720.mp4
+  meta_data_definition:
     required:
       - page_title
     properties:
@@ -110,7 +119,7 @@ definitions:
         type: string
       robots: 
         type: string
-  product_variations:
+  variation_list_definition:
     required:
       - sku
       - size
@@ -135,7 +144,23 @@ definitions:
           - NOT_AVAILABLE
           - PREORDER
           - BACKORDER
-  product_not_found:
+  view_list_definition:
+    required:
+      - type
+      - image_url
+    properties:
+      type: 
+        type: string
+        enum:
+          - standard
+          - model
+          - detail
+          - productvideo
+      image_url: 
+        type: string
+      video_url: 
+        type: string
+  product_not_found_response:
     required:
       - success
       - error
