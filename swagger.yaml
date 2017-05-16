@@ -70,6 +70,12 @@ definitions:
         $ref: '#/definitions/meta_data_definition'
       availability_status:
         type: string
+        description: The status of the product. Possible values are "IN_STOCK". "NOT_AVAILABLE", "PREORDER", "BACKORDER"
+        enum:
+          - IN_STOCK
+          - NOT_AVAILABLE
+          - PREORDER
+          - BACKORDER
       variation_list:
         type: array
         description: List of product variations
@@ -108,22 +114,36 @@ definitions:
         type: standard
         image_url: https://sits-pod14-adidas.demandware.net/zoom/C77124_01_standard.jpg
         video_url: http://s7g10.scene7.com/C77124_product_video_720.mp4
-  meta_data_definition:
+      pricing_information:
+        standard_price: 99.95
+        sale_price: 79.95
+        
+  pricing_information_definition:
     required:
-      - page_title
+      - standard_price
     properties:
-      page_title: 
+      standard_price: 
+        type: number
+      sale_price: 
+        type: number
+        
+  view_list_definition:
+    required:
+      - type
+      - image_url
+    properties:
+      type: 
         type: string
-      site_name: 
+        enum:
+          - standard
+          - model
+          - detail
+          - productvideo
+      image_url: 
         type: string
-      description: 
+      video_url: 
         type: string
-      keywords: 
-        type: string
-      canonical: 
-        type: string
-      robots: 
-        type: string
+        
   variation_list_definition:
     required:
       - sku
@@ -149,30 +169,24 @@ definitions:
           - NOT_AVAILABLE
           - PREORDER
           - BACKORDER
-  view_list_definition:
+          
+  meta_data_definition:
     required:
-      - type
-      - image_url
+      - page_title
     properties:
-      type: 
+      page_title: 
         type: string
-        enum:
-          - standard
-          - model
-          - detail
-          - productvideo
-      image_url: 
+      site_name: 
         type: string
-      video_url: 
+      description: 
         type: string
-  pricing_information_definition:
-    required:
-      - standard_price
-    properties:
-      standard_price: 
-        type: number
-      sale_price: 
-        type: number
+      keywords: 
+        type: string
+      canonical: 
+        type: string
+      robots: 
+        type: string
+        
   product_not_found_response:
     required:
       - success
