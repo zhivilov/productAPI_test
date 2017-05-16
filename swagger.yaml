@@ -104,7 +104,8 @@ definitions:
     properties:
       sku: 
         type: string
-        maxLength: 3
+        maxLength: 10
+        minLength: 7
       size: 
         type: string
       availability: 
