@@ -83,7 +83,7 @@ definitions:
           $ref: '#/definitions/variation_list_definition'
       view_list:
         type: array
-        description: List of product variations
+        description: List of product views including images and video.
         items:
           $ref: '#/definitions/view_list_definition'
       pricing_information:
@@ -91,6 +91,11 @@ definitions:
         description: Price details information
         items:
           $ref: '#/definitions/pricing_information_definition'
+      attribute_list:
+        type: object
+        description: List of product related atributes 
+        items:
+          $ref: '#/definitions/attribute_list_definition'
     example:
       id: C77124
       name: Superstar Shoes
@@ -99,7 +104,7 @@ definitions:
       meta_data:
         page_title: adidas Superstar Shoes - White | adidas UK
         site_name: adidas United Kingdom
-        description: Shop for Superstar Shoes - White at adidas.co.uk! See all the styles and colours of Superstar Shoes - White at the official adidas UK online store.
+        description: Shop for Superstar Shoes - White at adidas.co.uk!
         keywords: Superstar Shoes
         canonical: http://www.adidas.co.uk/superstar-shoes/C77124.html
         robots: noindex, follow
@@ -117,7 +122,65 @@ definitions:
       pricing_information:
         standard_price: 99.95
         sale_price: 79.95
+      attribute_list:
+        badge_text: -30 %
+        badge_style: sale
+        rating_avg: 96
+        rating_count: 146
+        brand: Originals
+        category: Shoes
+        collection: Lifestyle
+        color: Core Black/Footwear White/Gum
+        gender: U
+        personalizable: true
+        customizable: false
+        pricebook: adidas-GB-listprices
+        sale: true
+        outlet: true
+        sport: 
+          Lifestyle
+        size_chart_link: /Sites-adidas-GB-Site/en_GB/Page-Include?cid=size-chart-size-shoes
         
+  attribute_list_definition:
+    required:
+      - personalizable
+      - customizable
+      - sale
+      - outlet
+      - pricebook
+    properties:
+      badge_text:
+        type: string
+      badge_style:
+        type: string
+      rating_avg:
+        type: number
+      rating_count: 
+        type: number
+      brand:
+        type: string
+      category:
+        type: string
+      collection:
+        type: string
+      color:
+        type: string
+      gender: 
+        type: string
+      personalizable:
+        type: boolean
+      customizable: 
+        type: boolean
+      pricebook: 
+        type: string
+      sale:
+        type: boolean
+      outlet:
+        type: boolean
+      sport:
+        type: object
+      size_chart_link: 
+        type: string
   pricing_information_definition:
     required:
       - standard_price
