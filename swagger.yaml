@@ -44,6 +44,7 @@ definitions:
       - product_type
       - availability_status
       - meta_data
+      - new_attribute
     properties:
       id:
         type: string
