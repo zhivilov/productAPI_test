@@ -44,7 +44,6 @@ definitions:
       - product_type
       - availability_status
       - meta_data
-      - new_attribute
     properties:
       id:
         type: string
@@ -73,11 +72,15 @@ definitions:
       model_number: JOA72
       product_type: inline
       meta_data:
-        page_title1: title some
+        page_title: title some
       availability_status: IN_STOCK
   product_meta_data:
+    required:
+      - page_title
+      - site_name
+      - new_attrbite
     properties:
-      page_title1: 
+      page_title: 
         type: string
       site_name: 
         type: string
