@@ -25,7 +25,7 @@ paths:
           required: true
           type: string
           default: BB1305
-          x-example: BB1305
+          x-example: BBBBBB
       responses:
         200:
           description: PAPI successful response
