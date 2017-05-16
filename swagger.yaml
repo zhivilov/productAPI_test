@@ -60,6 +60,12 @@ definitions:
       product_type:
         type: string
         description: Type of the given product. Possible values "inline","miadidas","yrReebok","flash","hype"
+        enum:
+          - inline
+          - miadidas
+          - yrreebok
+          - flash
+          - hype
       meta_data: 
         $ref: '#/definitions/product_meta_data'
       availability_status:
