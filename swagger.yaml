@@ -80,6 +80,11 @@ definitions:
         description: List of product variations
         items:
           $ref: '#/definitions/view_list_definition'
+      pricing_information:
+        type: object
+        description: Price details information
+        items:
+          $ref: '#/definitions/pricing_information_definition'
     example:
       id: C77124
       name: Superstar Shoes
@@ -160,6 +165,14 @@ definitions:
         type: string
       video_url: 
         type: string
+  pricing_information_definition:
+    required:
+      - standard_price
+    properties:
+      standard_price: 
+        type: number
+      sale_price: 
+        type: number
   product_not_found_response:
     required:
       - success
