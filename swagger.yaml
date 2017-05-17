@@ -101,6 +101,11 @@ definitions:
         description: An object containing the information for the product description
         items:
           $ref: '#/definitions/product_description_definition'
+      product_link_list:
+        type: object
+        description: A product link represents a link to a different product. It contains all information required to display the link to this product. This includes prices, images, badges and availability information.
+        items:
+          $ref: '#/definitions/product_link_list_definition'
     example:
       id: C77124
       name: Superstar Shoes
@@ -157,11 +162,65 @@ definitions:
           - Textile lining
           - Logo on heel patch
           - Herringbone-pattern rubber outsole
+      product_link_list:
+        type: color-variation
+        name: EQT Support ADV Shoes
+        url: /eqt-support-adv-shoes/BB1305.html
+        image: https://sits-pod14-adidas.demandware.net/zoom/BB1305_01_standard.jpg
+        altImage: https://sits-pod14-adidas.demandware.net/zoom/BB1305_02_standard.jpg
+        badge_text: -50%
+        badge_style: new
+        pricing_information:
+          standard_price: 99.95
+          sale_price: 79.95
+        rating_avg: 88,
+        rating_count: 76
+        
+  product_link_list_definition:
+    required:
+      - title
+    properties:
+      type: 
+        type: string
+        description: The type of product link
+        enum:
+          - color-variation
+          - mi-product
+          - complete-the-look
+          - mi-inspiration
+          - yr-inspiration
+      name: 
+        type: string
+        description: The name of the product.
+      url:
+        type: string
+        description: The relative URL to the linked product
+      image:
+        type: string
+        description: The URL to the product image. 
+      altImage: 
+        type: string
+        description: The URL to the product image that should be displayed on-hover.
+      pricing_information:
+        $ref: '#/definitions/pricing_information_definition'
+      badge_text:
+        type: string
+        description: The text to display on the product badge
+      badge_style:
+        type: string
+        description: The style of the badge. 
+      rating_avg:
+        type: number
+        description: Average rating on a scale of 1-100
+        minimum: 0
+        maximum: 100
+      rating_count: 
+        type: number
+        description: The number of ratings
   
   product_description_definition:
     required:
       - title
-      - subtitle
     properties:
       title: 
         type: string
