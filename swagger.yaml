@@ -177,8 +177,6 @@ definitions:
         rating_count: 76
         
   product_link_list_definition:
-    required:
-      - title
     properties:
       type: 
         type: string
