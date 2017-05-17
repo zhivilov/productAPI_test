@@ -149,6 +149,7 @@ definitions:
       - sale
       - outlet
       - pricebook
+      - sport
     properties:
       badge_text:
         type: string
@@ -198,17 +199,10 @@ definitions:
         type: array
         description: The sports this product can be used for
         items:
-          $ref: '#/definitions/sport_definition'
+          type: string
       size_chart_link: 
         type: string
         description: The relative URL to the size-chart
-  
-  sport_definition:
-    properties:
-      standard_price: 
-        type: number
-      sale_price: 
-        type: number
         
   pricing_information_definition:
     required:
