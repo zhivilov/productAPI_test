@@ -102,7 +102,7 @@ definitions:
         items:
           $ref: '#/definitions/product_description_definition'
       product_link_list:
-        type: object
+        type: array
         description: A product link represents a link to a different product. It contains all information required to display the link to this product. This includes prices, images, badges and availability information.
         items:
           $ref: '#/definitions/product_link_list_definition'
