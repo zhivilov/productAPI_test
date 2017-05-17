@@ -199,7 +199,7 @@ definitions:
         type: array
         description: The sports this product can be used for
         items:
-          type: string
+          type: number
       size_chart_link: 
         type: string
         description: The relative URL to the size-chart
