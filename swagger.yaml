@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   version: 1.0.0
   title: Product API
-  description: eCom Product API fro product related information
+  description: The product API is used for retrieving Product Data. It can not be used to Create Products, or Update Products
   contact:
     name: Ivan Zhyvilov
     email: ivan.zhyvilov@adidas-group.com
@@ -15,23 +15,22 @@ produces:
 paths:
   /products/{pid}:
     get:
-      description: |
-        Get eCom Product information over API 
-      operationId: getproduct
+      description: Used for retrieving product data. A product ID should be passed as an identifier
+      operationId: getProduct
       parameters:
         - name: pid
           in: path
-          description: The ID of the product 
+          description: The identifier of the product. This should correspond with an article number
           required: true
           type: string
           x-example: BB1305
       responses:
         200:
-          description: PAPI successful response
+          description: Ok
           schema:
             $ref: '#/definitions/product_found_response'
         default:
-          description: Product not found
+          description: Not Found
           schema:
             $ref: '#/definitions/product_not_found_response'
 definitions:
