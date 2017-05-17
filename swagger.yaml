@@ -198,12 +198,17 @@ definitions:
         type: array
         description: The sports this product can be used for
         items:
-          type: number
+          $ref: '#/definitions/sport_definition'
       size_chart_link: 
         type: string
         description: The relative URL to the size-chart
   
-  
+  sport_definition:
+    properties:
+      standard_price: 
+        type: number
+      sale_price: 
+        type: number
         
   pricing_information_definition:
     required:
