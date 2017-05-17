@@ -52,6 +52,7 @@ definitions:
       name:
         type: string
         description: Localized product title
+        example: dflskfldf
       model_number:
         type: string
         description: Product Model Number
@@ -137,8 +138,7 @@ definitions:
         pricebook: adidas-GB-listprices
         sale: true
         outlet: true
-        sport: 
-          Lifestyle
+        sport: Lifestyle
         size_chart_link: /Sites-adidas-GB-Site/en_GB/Page-Include?cid=size-chart-size-shoes
         
   attribute_list_definition:
