@@ -83,12 +83,12 @@ definitions:
           $ref: '#/definitions/variation_list_definition'
       view_list:
         type: array
-        description: List of product views including images and video.
+        description: A list of product views. A product has a minimum of 2 and a max of 9 views
         items:
           $ref: '#/definitions/view_list_definition'
       pricing_information:
         type: object
-        description: Price details information
+        description: Information about the product prices
         items:
           $ref: '#/definitions/pricing_information_definition'
       attribute_list:
@@ -96,6 +96,11 @@ definitions:
         description: List of product related atributes 
         items:
           $ref: '#/definitions/attribute_list_definition'
+      product_description:
+        type: object
+        description: An object containing the information for the product description
+        items:
+          $ref: '#/definitions/product_description_definition'
     example:
       id: C77124
       name: Superstar Shoes
@@ -141,7 +146,38 @@ definitions:
           - Running
           - Lifestyle
         size_chart_link: /Sites-adidas-GB-Site/en_GB/Page-Include?cid=size-chart-size-shoes
-        
+        pdp_callout: This product is excluded from all promotional discounts and offers.
+      product_description:
+        title: Superstar Shoes
+        text: This 70s sneaker began life as a court-dominating B-ball shoe
+        subtitle: A court-dominating B-ball shoe
+        usps: 
+          - Full grain leather upper for comfort and soft feel
+          - Classic rubber shell toe
+          - Textile lining
+          - Logo on heel patch
+          - Herringbone-pattern rubber outsole
+  
+  product_description_definition:
+    required:
+      - title
+      - subtitle
+    properties:
+      title: 
+        type: string
+        description: The title of the product description. Usually the same as the product name, but can be different
+      subtitle: 
+        type: string
+        description: The subtitle of the product description.
+      text: 
+        type: string
+        description: The actual product description
+      usps: 
+        type: array
+        description: A list of Unique Sale Points (USPs) for the product
+        items:
+          type: string
+  
   attribute_list_definition:
     required:
       - personalizable
@@ -203,6 +239,9 @@ definitions:
       size_chart_link: 
         type: string
         description: The relative URL to the size-chart
+      pdp_callout:
+        type: string
+        description: The title values from content asset assigned to the product via "pdpCallout" attribute
         
   pricing_information_definition:
     required:
