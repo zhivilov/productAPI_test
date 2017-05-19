@@ -1,11 +1,15 @@
 swagger: "2.0"
 info:
   version: 1.0.0
-  title: Product API
-  description: The product API is used for retrieving Product Data. It can not be used to Create Products, or Update Products
+  title: Product Data API (Demandware)
+  description: |
+    The product API is used for retrieving Product Data from SCC(DW).
+    This API is [documented at Apiary](http://docs.some.apiary.io)
+    and [stored on GitHub](https://github.com/zhivilov/productAPI_test).
   contact:
     name: Ivan Zhyvilov
     email: ivan.zhyvilov@adidas-group.com
+    
 host: www.adidas.co.uk
 basePath: /api
 schemes:
@@ -24,6 +28,7 @@ paths:
           required: true
           type: string
           x-example: BB1305
+          
       responses:
         200:
           description: Ok
@@ -33,6 +38,7 @@ paths:
           description: Not Found
           schema:
             $ref: '#/definitions/product_not_found_response'
+            
 definitions:
   product_found_response:
     required:
@@ -402,3 +408,98 @@ definitions:
     example:
       success: false
       error: 404
+      
+   #
+  # -- DO NOT EDIT BEYOND THIS POINT --
+  #
+
+  # Media Types Definitions
+
+  #
+  # application/problem+json
+  #
+  problem_detail:
+    type: object
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        type: number
+      detail:
+        type: string
+      instance:
+        type: string
+    required:
+      - title
+      - detail
+
+  #
+  # application/hal+json defintion
+  #
+  hal_link_object:
+    type: object
+    required:
+      - href
+    properties:
+      href:
+        type: string
+      templated:
+        type: boolean
+      type:
+        type: string
+      deprecation:
+        type: string
+      name:
+        type: string
+      profile:
+        type: string
+      title:
+        type: string
+      hreflang:
+        type: string
+
+  hal_curies_link:
+    title: HAL Curies Link
+    allOf:
+      - type: object
+        properties:
+          templated:
+            enum:
+              - true
+        required:
+          - templated
+      - $ref: '#/definitions/hal_link_object'
+
+  hal_resource:
+    title: HAL Resource Object
+    type: object
+    properties:
+      _links:
+        type: object
+        additionalProperties:
+          # WARN: Should be "anyOf" but "anyOf" isn't supported in Swagger 2.0
+          allOf:
+            - $ref: '#/definitions/hal_link_object'
+            - type: array
+              items:
+                - $ref: '#/definitions/hal_link_object'
+        properties:
+          curies:
+            # WARN: Should be "anyOf" but "anyOf" isn't supported in Swagger 2.0
+            allOf:
+              - $ref: '#/definitions/hal_curies_link'
+              - type: array
+                items:
+                  - $ref: '#/definitions/hal_curies_link'
+      _embedded:
+        type: object
+        additionalProperties: true
+        # WARN: Apiary doesn't support circular references
+        # additionalProperties:
+        #   anyOf:
+        #     - $ref: '#/definitions/hal_resource'
+        #     - type: array
+        #       items:
+        #         - $ref: '#/definitions/hal_resource'
