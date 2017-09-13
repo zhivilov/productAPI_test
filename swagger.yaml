@@ -73,19 +73,6 @@ definitions:
           - hype
       meta_data: 
         $ref: '#/definitions/meta_data_definition'
-      availability_status:
-        type: string
-        description: The status of the product. Possible values are "IN_STOCK". "NOT_AVAILABLE", "PREORDER", "BACKORDER"
-        enum:
-          - IN_STOCK
-          - NOT_AVAILABLE
-          - PREORDER
-          - BACKORDER
-      variation_list:
-        type: array
-        description: List of product variations
-        items:
-          $ref: '#/definitions/variation_list_definition'
       view_list:
         type: array
         description: A list of product views. A product has a minimum of 2 and a max of 9 views
