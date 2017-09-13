@@ -46,7 +46,6 @@ definitions:
       - name
       - model_number
       - product_type
-      - availability_status
       - meta_data
     properties:
       id:
