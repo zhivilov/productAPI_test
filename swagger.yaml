@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   version: 1.0.0
-  title: Product Data API (Demandware)
+  title: "[Draft] Product Data API (DW)"
   description: |
     The product API is used for retrieving Product Data from SCC(DW).
     This API is [documented at Apiary](http://docs.some.apiary.io)
@@ -27,7 +27,7 @@ paths:
           description: The identifier of the product. This should correspond with an article number
           required: true
           type: string
-          x-example: BB1305
+          x-example: C77124
           
       responses:
         200:
