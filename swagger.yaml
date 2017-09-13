@@ -87,6 +87,11 @@ definitions:
         description: List of product related atributes 
         items:
           $ref: '#/definitions/attribute_list_definition'
+      callouts:
+        type: object
+        description: List of product related atributes 
+        items:
+          $ref: '#/definitions/callouts_definition'
       product_description:
         type: object
         description: An object containing the information for the product description
@@ -228,6 +233,12 @@ definitions:
       rating_count: 
         type: number
         description: The number of ratings
+  
+  callouts_definition:
+    properties:
+      callout_top_stack: 
+        type: string
+        description: The title of the product description. Usually the same as the product name, but can be different
   
   product_description_definition:
     required:
